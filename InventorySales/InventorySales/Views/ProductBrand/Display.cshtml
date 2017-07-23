@@ -1,0 +1,33 @@
+﻿@model IEnumerable<InventorySales.Models.ProductBrand>
+
+@{
+     ViewBag.Title = "View Brands";
+     ViewBag.Heading = "Brand List";
+}
+<section>
+
+     <div class="shadow-gains zoom-glyphs table-responsive">
+          <table id="tblProductBrandDisplay" class="table table-extend table-striped table-bordered sortable">
+               <thead>
+                    <tr>
+                         <th><span>@Html.DisplayNameFor(model => model.Name)</span></th>
+                         <th><span class="glyphicon glyphicon-cog"></span></th>
+                    </tr>
+               </thead>
+               <tbody>
+                    @foreach (var item in Model)
+               {
+                         <tr>
+                              <td>
+                                   @Html.DisplayFor(modelItem => item.Name)
+                              </td>
+                              <td>
+                                   <a href="@Url.Action("edit", new { id = item.Id })"><span class="glyphicon glyphicon-pencil"></span></a>
+                                   <a href="@Url.Action("delete", new { id = item.Id })"><span class="glyphicon glyphicon-remove"></span></a>
+                              </td>
+                         </tr>
+               }
+               </tbody>
+          </table>
+     </div>
+</section>

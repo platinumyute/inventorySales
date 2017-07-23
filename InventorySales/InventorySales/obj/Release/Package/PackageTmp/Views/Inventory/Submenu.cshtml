@@ -1,0 +1,16 @@
+﻿@{
+     ViewBag.Title = "Inventory Submenu";
+     ViewBag.Heading = "Inventory";
+}
+
+@Content.RenderSubMenu("Inventory")
+
+@section Right {
+     @Html.Action("GetRecentInventoryEntries")
+
+}
+
+@section Left {
+     @Html.Action("GetInventoryRunningLow")
+
+}

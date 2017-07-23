@@ -1,0 +1,20 @@
+﻿@model InventorySales.Models.DropDownList
+
+<select id=@Model.Name name=@Model.Name class="form-control" onchange=@Model.OnChangeEventHandler>
+     <option>@Model.DefaultMessage</option>
+     
+     @if (Model.Items != null)
+     {
+          foreach (var item in Model.Items)
+          {
+               if (@item.Selected)
+               {
+                    <option selected="selected" value=@item.Value>@item.Text</option>
+               }
+               else
+               {
+                       <option value=@item.Value>@item.Text</option>
+               }
+          }
+     }
+</select>

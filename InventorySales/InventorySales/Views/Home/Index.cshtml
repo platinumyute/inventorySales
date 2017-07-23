@@ -1,0 +1,12 @@
+﻿
+@{
+     ViewBag.Title = "homepage";
+     ViewBag.Heading = "In-Checks";
+}
+
+<div class="btn-group-vertical btn-menu">
+     @Html.ActionLink("Inventory", "submenu","Inventory", "", htmlAttributes: new { @class = "btn" })
+     @Html.ActionLink("Products", "submenu", "Product", "", htmlAttributes: new { @class = "btn" })
+     @Html.ActionLink("Categories", "submenu", "Category", "", htmlAttributes: new { @class = "btn" })
+     @Html.ActionLink("Brands", "submenu","ProductBrand", "", htmlAttributes: new { @class="btn" } )
+</div>

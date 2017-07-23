@@ -1,0 +1,10 @@
+﻿@{
+     ViewBag.Title = "Category Submenu";
+     ViewBag.Heading = "Category";
+}
+@Content.RenderSubMenu("Category")
+
+@section Right {
+     @Html.Action("GetRecentCategoryEntries")
+
+}

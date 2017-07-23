@@ -1,0 +1,27 @@
+﻿@helper RenderModalConfirm(string name) {
+     <div id=@name class="modal fade col-md-8 col-md-offset-2">
+          <div class="modal-dialog">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <button class="btn-danger close" data-dismiss="modal">X</button>
+                         <label id="comfirmHeader">Confirm</label>
+                    </div>
+                    <div class="modal-body">
+                         <p id="confirmMessage">This will add a new product</p>
+                    </div>
+                    <div class="modal-footer">
+                         <button class="btn-danger" data-dismiss="modal">Cancel</button>
+                         <button type="submit" class="btn-success">Ok</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+}
+
+@helper RenderSubMenu(string controllerName) {
+     <div class="btn-group-vertical btn-menu">
+          <a href="/@controllerName/Add" class="btn">Add</a>
+          <a href="/@controllerName/Display" class="btn">Display</a>
+          <a href="/home/index" class="btn">Back</a>
+     </div>
+}

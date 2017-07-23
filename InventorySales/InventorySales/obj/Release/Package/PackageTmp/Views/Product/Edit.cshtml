@@ -1,0 +1,44 @@
+﻿@model InventorySales.ViewModels.ProductAddEditViewModel
+
+@{
+     ViewBag.Title = "Edit Product";
+     ViewBag.Heading = "Editing Product";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("edit","product",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+         <div class="form-group-lg">
+              @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label" })
+              <div>
+                   @Html.DropDownListFor(model => model.CategoryId, new SelectList(ViewBag.Categories, "Value", "Text", Model.CategoryId), "Select Category", new { @class = "form-control" })
+                   @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+              </div>
+         </div>
+         <div class="form-group-lg">
+              @Html.LabelFor(model => model.BrandId, htmlAttributes: new { @class = "control-label" })
+              <div>
+                   @Html.DropDownListFor(model => model.BrandId, new SelectList(ViewBag.Brands, "Value", "Text", Model.BrandId), "Select Brand", new { @class = "form-control" })
+                   @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+              </div>
+         </div>
+        
+        <div class="form-group-lg">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "eg.200" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+         <div class="form-group-lg">
+              <button type="submit" class="btn">Save</button>
+         </div>
+    </div>
+}

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<InventorySales.ViewModels.InventoryRecentEntriesViewModel>
+<div class="panel panel-default">
+     <div class="panel-heading">
+          <b>Recent Entries</b>
+     </div>
+     <div class="panel-body">
+          <ul class="list-group">
+               @foreach (var item in Model)
+               {
+               <li class="list-group-item">
+                    <div>
+                         <h4>@item.ProductName</h4>
+                    </div>
+                    <div>
+                         @item.ProductDescription
+                    </div>
+                    <div>
+                         Bought: @item.UnitsBought
+                    </div>
+                    <div>Sold: @item.UnitsSold</div>
+                    <div>Price: <span class="glyphicon glyphicon-usd"></span>@item.PricePerUnit</div>
+               </li>
+               }
+          </ul>
+     </div>
+</div>

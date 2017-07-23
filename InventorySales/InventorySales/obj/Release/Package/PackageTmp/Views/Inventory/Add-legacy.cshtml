@@ -1,0 +1,46 @@
+﻿@model InventorySales.Models.Inventory
+
+@{
+     ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("add", "inventory", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+
+     <div class="form-group-lg">
+          <label>Category</label>
+          @Html.Partial("CategoryList")
+     </div>
+     <div class="form-group-lg">
+          <label>Product</label>
+          @Html.Partial("ProductList")
+     </div>
+     <div class="form-group-lg">
+          <label>Description</label>
+          @Html.Partial("ProductDesciptionList");
+     </div>
+     <div class="form-group-lg">
+          <label>Units Purchased</label>
+          <input name="UnitsPurchased" class="form-control" type="number" placeholder="eg.200" />
+     </div>
+     <div class="form-group-lg">
+          <label>Price Paid Per Unit</label>
+          <div class="input-group">
+               <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+               <input name="PricePaidPerUnit" class="form-control" type="number" placeholder="eg.1200" />
+          </div>
+     </div>
+     <div class="form-group-lg">
+          <a id="toggleModal" href="#modalConfirm" class="hide" data-toggle="modal"></a>
+          <button type="submit" class="btn" >Add</button>
+     </div>
+  
+}
+<div>
+     @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+     @Scripts.Render("~/bundles/jqueryval")
+}

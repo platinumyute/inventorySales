@@ -1,0 +1,66 @@
+﻿@model InventorySales.ViewModels.InventoryEditViewModel
+
+@{
+     ViewBag.Title = "Edit Inventory";
+     ViewBag.Heading = "Editing Inventory";
+}
+<section class="col-lg-8 col-lg-push-2 well">
+     @using (Html.BeginForm())
+     {
+          @Html.AntiForgeryToken()
+
+          <div>
+               @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+               @Html.HiddenFor(model => model.Id)
+
+
+               <div class="form-group-lg">
+                    <label class="control-label">Brand</label>
+                    <div>
+                         @Html.DropDownListFor(model => model.BrandId,
+               new SelectList(ViewBag.Brands, "Value", "Text", Model.BrandId.ToString()),
+               "Select Brand",
+               new { @class = "form-control", @onclick = "UpdateDescription('BrandId', 'Description')" })
+                         @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+                    </div>
+
+               </div>
+
+               <div class="form-group-lg">
+                    <label class="control-label">Description</label>
+                    <div>
+                         @Html.DropDownListFor(model => model.Description,
+               new SelectList(ViewBag.Descriptions, "Value", "Text", Model.Description.ToString()),
+               "Select Description",
+               new { @class = "form-control" })
+                         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+               </div>
+               <div class="form-group-lg">
+                    <label class="control-label">Units Bought</label>
+                    @Html.EditorFor(model => model.UnitsPurchased, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "eg.200" } })
+                    @Html.ValidationMessageFor(model => model.UnitsPurchased, "", new { @class = "text-danger" })
+               </div>
+               <div class="form-group-lg">
+                    <label class="control-label">Units Sold</label>
+                    @Html.EditorFor(model => model.UnitsSold, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "eg.130" } })
+                    @Html.ValidationMessageFor(model => model.UnitsSold, "", new { @class = "text-danger" })
+               </div>
+               <div class="form-group-lg">
+                    <label>Price Paid Per Unit</label>
+                    <div class="input-group">
+                         <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                         @Html.EditorFor(model => model.PricePaidPerUnit, new { htmlAttributes = new { @class = "form-control input-group", @type="number", @placeholder = "eg.$130" } })
+                         @Html.ValidationMessageFor(model => model.PricePaidPerUnit, "", new { @class = "text-danger" })
+                    </div>
+               </div>
+               <div class="form-group-lg">
+                    <input type="submit" class="btn" value="Save" />
+               </div>
+          </div>
+     }
+</section>
+<aside>
+   @Scripts.Render("~/bundles/jqueryval")
+</aside>
+     

@@ -1,0 +1,11 @@
+﻿@{
+     ViewBag.Title = "Product Submenu";
+     ViewBag.Heading = "Product";
+}
+
+@Content.RenderSubMenu("Product")
+
+@section Right {
+     @Html.Action("GetRecentProductEntries")
+
+}

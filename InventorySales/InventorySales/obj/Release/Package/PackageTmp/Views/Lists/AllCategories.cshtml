@@ -1,0 +1,9 @@
+﻿@model IEnumerable<InventorySales.Models.Category>
+<select>
+     <option>Select Category</option>
+
+     @foreach (var item in Model)
+     {
+          <option id=@item.Id>@item.Name</option>
+     }
+</select>

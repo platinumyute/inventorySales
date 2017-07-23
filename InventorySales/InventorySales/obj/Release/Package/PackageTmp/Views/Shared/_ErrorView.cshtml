@@ -1,0 +1,19 @@
+﻿@model InventorySales.Models.ErrorHelp
+
+<div class="text-center">
+     <h4>@Html.DisplayFor(model => model.Message)</h4>
+</div>
+ <hr />
+<div class="well-lg">
+        
+        
+     @for(int i = 1; i <= Model.Solutions.Count; i++)
+     {
+          <div>
+               @(i). @Html.DisplayFor(model => model.Solutions[i-1])
+          </div>
+     }
+</div>
+
+@Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer })
+

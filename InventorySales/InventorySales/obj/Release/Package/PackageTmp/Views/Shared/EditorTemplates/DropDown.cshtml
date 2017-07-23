@@ -1,0 +1,9 @@
+﻿@model InventorySales.Models.DropDownList
+
+<select name= @Model.Name class="form-control">
+     <option>@Model.DefaultMessage</option>
+    @foreach (var item in Model.Items)
+    {
+         <option value= @item.Value>@item.Text</option>
+    }
+</select>

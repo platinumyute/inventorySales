@@ -1,0 +1,21 @@
+﻿@model IEnumerable<InventorySales.ViewModels.InventoryRunningLowViewModel>
+<div class="panel panel-default">
+     <div class="panel-heading">
+          <b>Running Low</b>
+     </div>
+     <div class="panel-body">
+          <ul class="list-group">
+               @foreach (var item in Model)
+               {
+                    <li class="list-group-item">
+                         <div>
+                              <h4>@item.ProductName @item.ProductDescription</h4>
+                         </div>
+                         <div>
+                              @item.UnitsAvailable left
+                         </div>
+                    </li>
+               }
+          </ul>
+     </div>
+</div>

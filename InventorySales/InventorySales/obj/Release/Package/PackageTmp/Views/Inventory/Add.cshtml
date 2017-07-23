@@ -1,0 +1,69 @@
+﻿@model InventorySales.ViewModels.InventoryAddViewModel
+
+@{
+     ViewBag.Title = "Add Inventory";
+     ViewBag.Heading = "Add New Inventory";
+}
+
+@using (Html.BeginForm("add", "inventory", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+         <div class="form-group-lg">
+              @Html.LabelFor(model => model.BrandId, htmlAttributes: new { @class = "control-label" })
+              <div>
+                   @Html.DropDownListFor(model => model.BrandId, new SelectList(ViewBag.Brands, "Value", "Text"), "Select Brand", new { @class = "form-control", @onclick = "UpdateDescription('BrandId','Description')" })
+                   @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+              </div>
+         </div>
+         <div class="form-group-lg">
+              @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+              <div>
+                   @Html.DropDownListFor(model => model.Description, new SelectList(ViewBag.Descriptions, "Value", "Text"), "Select Description", new { @class = "form-control" })
+                   @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+              </div>
+         </div>
+        
+        <div class="form-group-lg">
+            @Html.LabelFor(model => model.UnitsPurchased, htmlAttributes: new { @class = "control-label" })
+            <div>
+                <input id=@nameof(Model.UnitsPurchased) name=@nameof(Model.UnitsPurchased) class = "form-control" required type="number" placeholder="eg.100" />
+                @Html.ValidationMessageFor(model => model.UnitsPurchased, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group-lg">
+            @Html.LabelFor(model => model.UnitsSold, htmlAttributes: new { @class = "control-label" })
+            <div>
+                 <input id=@nameof(Model.UnitsSold) name=@nameof(Model.UnitsSold) class="form-control" required type="number" placeholder="eg.300" />
+                @Html.ValidationMessageFor(model => model.UnitsSold, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group-lg">
+            @Html.LabelFor(model => model.PricePaidPerUnit, htmlAttributes: new { @class = "control-label" })
+            <div>
+                 <div class="input-group">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                      <input name="PricePaidPerUnit" class="form-control" required type="number" placeholder="eg.1200" />
+                      @Html.ValidationMessageFor(model => model.PricePaidPerUnit, "", new { @class = "text-danger" })
+
+                 </div>
+            </div>
+        </div>
+         <div class="form-group-lg">
+              <button type="submit" class="btn">Add</button>
+         </div>
+    </div>   
+}
+
+@section Right {
+     @Html.Action("GetRecentInventoryEntries")
+     
+     }
+
+@section Left {
+     @Html.Action("GetInventoryRunningLow")
+
+}

@@ -1,0 +1,20 @@
+﻿@model InventorySales.Models.ErrorHelp
+@{ 
+     ViewBag.Heading = "Error";
+}
+<div class="text-center">
+     <h4>@Html.DisplayFor(model => model.Message)</h4>
+</div>
+<section class="col-lg-8 col-lg-push-2 well">
+        
+     @for (int i = 1; i <= Model.Solutions.Count; i++)
+     {
+          <div>
+               @(i). @Html.DisplayFor(model => model.Solutions[i-1])
+          </div>
+     }
+</section>
+<div>
+     @Html.ActionLink("Back", null, null, null, new { href = Request.UrlReferrer })
+</div>
+

@@ -1,0 +1,127 @@
+﻿body {
+     background-color:lightgray;
+}
+
+.table {
+     background-color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+     .table-extend table {
+          display: block;
+          overflow-y: auto;
+     }
+}
+.table-Display table thead {
+     background-color: aliceblue;
+     font-size: x-large;
+}
+.table-Display table tbody {
+     font-size: medium;
+}
+
+.btn-menu {
+     width:100%;
+}
+
+.btn-menu .btn {
+     margin-bottom: 10px;
+     background-color:white;
+}
+
+.form-group-lg {
+     margin-bottom: 10px;
+}
+
+.btn {
+     padding: 15px;
+     font-size: 20px;
+     font-style: italic;
+     font-weight: bold;
+     width: 100%;
+     background-color: palegoldenrod;
+}
+
+.btn {
+    box-shadow: 1px 3px 2px 1px darkgrey;
+}
+
+.btn-wheat {
+        background-color: wheat;
+}
+
+.shadow-gains table {
+     border: 3px solid gainsboro;
+     box-shadow: 6px 4px 10px lightslategrey;
+}
+
+.list-group-item {
+     background-color: white;
+}
+
+.navbar-primary {
+     background-color: aliceblue;
+     border-color: darkgray;
+     box-shadow: 4px 3px 10px grey;
+     padding:4px;
+}
+
+.nav li a {
+     font-size:larger;
+     font-weight:bold;
+}
+
+.navbar-brand {
+     font-size: x-large;
+     font-weight: bold;
+}
+
+.panel-default {
+     text-align:center;
+}
+
+.panel-default .panel-heading {
+     font-size:x-large;
+}
+
+.container-search {
+     margin-bottom :20px;
+}
+
+.page-heading {
+     font-size:32pt;
+     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+     text-align:center;
+}
+
+.form-group .btn-lg {
+     width:100%;
+}
+
+.zoom-in {
+     zoom:2;
+}
+
+.zoom-glyphs .glyphicon {
+     zoom:2;
+}
+
+.modal {
+     border-radius:12px;
+}
+
+.modal .modal-header {
+     text-align:center;
+     background-color: lightgoldenrodyellow;
+}
+
+.modal-footer {
+     background-color: lightgoldenrodyellow;
+}
+.modal .modal-footer button{
+     width:20%;
+     height:40px;
+     border-radius:12px;
+
+} 

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<InventorySales.Models.Category>
+@{
+     ViewBag.Title = "View Category";
+     ViewBag.Heading = "Category List";
+}
+
+<div class="shadow-gains zoom-glyphs table-responsive">
+     <table id="tblInventoryDisplay" class="table table-extend table-striped table-bordered">
+          <tr>
+               <th>
+                    @Html.DisplayNameFor(model => model.Name)
+               </th>
+               <th><span class="glyphicon glyphicon-cog"></span></th>
+          </tr>
+
+          @foreach (var item in Model)
+          {
+               <tr>
+                    <td>
+                         @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                         <a href="@Url.Action("edit", new { id = item.Id })"><span class="glyphicon glyphicon-pencil"></span></a>
+                         <a href="@Url.Action("delete", new { id = item.Id })"><span class="glyphicon glyphicon-remove"></span></a>
+                    </td>
+               </tr>
+          }
+
+     </table>
+</div>
+
+
